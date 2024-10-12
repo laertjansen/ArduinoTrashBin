@@ -13,3 +13,5 @@ Cardboard and Hot Glue
 ![IMG_9693](https://github.com/user-attachments/assets/74a88dd5-8e6b-4b82-8e8e-e2c29d55c5f3)
 
 ![IMG_9691](https://github.com/user-attachments/assets/c2a51979-77b9-4197-9995-578384bb8483)
+
+![TrashBinSchematics](https://github.com/user-attachments/assets/f2861206-3292-4e2d-a00b-6d6e8b2074de)
