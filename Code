@@ -1,0 +1,48 @@
+#include <Servo.h>  // Include servo library
+
+Servo servo;  // Create servo control object
+
+// Define the pins for the ultrasonic sensor
+const int trigPin = 8;
+const int echoPin = 9;
+
+void setup() {
+  // Start serial communication at 9600 baud rate
+  Serial.begin(9600);
+
+  // Set the ultrasonic sensor pins
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  // Attach the servo to pin 2
+  servo.attach(2);
+  // Initialize the servo position if needed
+  servo.write(90);
+}
+
+void loop() {
+  // Send out a trigger pulse
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Read the duration of the echo pulse
+  long duration = pulseIn(echoPin, HIGH);
+
+  // Calculate distance in cm
+  int distance = duration / 58;
+
+  // Print the distance to the serial monitor
+  Serial.println(distance);
+
+  // Control the servo based on distance
+  if (distance < 10) {
+    servo.write(90);  // Turn servo to 90 degrees
+    delay(2000);       // Bin stays open for 2 sec
+  } else {
+    servo.write(0);  // Turn servo back to 0 degrees
+  }
+
+  // Wait for a short time before the next measurement
+  delay(100);
+}
